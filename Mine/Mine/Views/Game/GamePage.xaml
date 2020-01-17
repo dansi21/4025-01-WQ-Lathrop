@@ -12,6 +12,9 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand"
                 FontSize="Large" />
+            <Image Source="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Seattle_Redhawks_logo.svg/914px-Seattle_Redhawks_logo.svg.png"
+                   WidthRequest="200"
+                   HeightRequest="200" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
