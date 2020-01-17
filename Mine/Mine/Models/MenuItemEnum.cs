@@ -6,6 +6,7 @@
     public enum MenuItemEnum
     {
         Items,
-        About
+        About,
+        Game
     }
 }
