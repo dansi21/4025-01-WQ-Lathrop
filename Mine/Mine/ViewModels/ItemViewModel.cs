@@ -15,6 +15,10 @@ namespace Mine.ViewModels
         /// The Data to be the passed in data
         /// </summary>
         /// <param name="data"></param>
+        /// 
+
+
+
         public ItemViewModel(ItemModel data = null)
         {
             Title = data?.Name;

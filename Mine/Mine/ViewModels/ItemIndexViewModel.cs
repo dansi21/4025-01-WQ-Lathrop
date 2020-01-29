@@ -27,6 +27,12 @@ namespace Mine.ViewModels
         // Command to force a Load of data
         public Command LoadDatasetCommand { get; set; }
 
+        public async Task<ItemModel> Read(string id)
+        {
+            var result = await DataStore.ReadAsync(id);
+            return result;
+        }
+
         private bool _needsRefresh;
 
         /// <summary>
