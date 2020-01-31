@@ -51,7 +51,7 @@ namespace Mine.Views
         async void Delete_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new ItemDeletePage(new ItemViewModel(ViewModel.Data))));
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
     }
 }
