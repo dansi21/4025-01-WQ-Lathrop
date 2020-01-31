@@ -17,6 +17,22 @@
         <Label Text="{Binding Data.Name}" d:Text="Item name" FontSize="Small"/>
         <Label Text="Description:" FontSize="Medium" />
         <Label Text="{Binding Data.Description}" d:Text="Item description" FontSize="Small"/>
+
+        <StackLayout
+            HorizontalOptions="Center"
+            Padding="20">
+
+            <Label Text="Really delete this?" FontSize="Medium">
+            </Label>
+            <Button
+                Text="Yes"
+                Clicked="Delete_Clicked"
+                HorizontalOptions="Center"
+                FontSize="Medium"
+                BorderWidth="1"
+                BorderColor="Black"></Button>
+        </StackLayout>
+
     </StackLayout>
     
 </ContentPage>
