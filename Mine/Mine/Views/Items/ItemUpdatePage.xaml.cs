@@ -28,6 +28,8 @@ namespace Mine.Views
             BindingContext = this.ViewModel = data;
         }
 
+
+
         /// <summary>
         /// Save calls to Update
         /// </summary>
@@ -50,6 +52,11 @@ namespace Mine.Views
             Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
 
             await Navigation.PopAsync();
+        }
+
+
+        void Value_OnStepperValueChanged(object sender, ValueChangedEventArgs e) {
+            ValueValue.Text = String.Format("{0}", e.NewValue);
         }
     }
 }

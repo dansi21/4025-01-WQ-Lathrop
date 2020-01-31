@@ -82,6 +82,7 @@ namespace Mine.ViewModels
             return result;
         }
 
+
         #region Refresh
         // Return True if a refresh is needed
         // It sets the refresh flag to false
