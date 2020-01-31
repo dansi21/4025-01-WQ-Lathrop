@@ -92,6 +92,7 @@ namespace Mine.ViewModels
                 return false;
             record.Update(data);
             var result = await DataStore.UpdateAsync(record);
+            await ExecuteLoadDataCommand();
             return result;
         }
 
