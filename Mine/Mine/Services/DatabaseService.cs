@@ -50,5 +50,13 @@ namespace Mine.Services
                 }
             }
         }
+        public Task<int> CreateAsync(ItemModel data)
+        {
+            return Database.InsertAsync(data);
+        }
+        public Task<ItemModel> ReadAsync(string id)
+        {
+            return Database.Table<ItemModel>().Where(i => i.Id.Equals(id)).FirstOrDefaultAsync();
+        }
     }
 }
