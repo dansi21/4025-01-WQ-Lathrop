@@ -58,5 +58,15 @@ namespace Mine.Services
         {
             return Database.Table<ItemModel>().Where(i => i.Id.Equals(id)).FirstOrDefaultAsync();
         }
+        public Task<int> UpdateAsync(ItemModel item) {
+            return Database.UpdateAsync(item);
+        }
+        public Task<int> DeleteAsync(ItemModel item)
+        {
+            return Database.DeleteAsync(item);
+        }
+        public Task<List<ItemModel>> IndexAsync() {
+            return Database.Table<ItemModel>().ToListAsync();
+        }
     }
 }
