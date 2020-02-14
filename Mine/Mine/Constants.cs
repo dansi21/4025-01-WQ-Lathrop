@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
 
-namespace Game
+namespace Mine
 {
     public static class Constants
     {
-        public const string DatabaseFilename = "ToDoSQLite.db3";
+        public const string DatabaseFilename = "DataBaseService.db3";
 
         public const SQLite.SQLiteOpenFlags Flags =
             SQLite.SQLiteOpenFlags.ReadWrite |
