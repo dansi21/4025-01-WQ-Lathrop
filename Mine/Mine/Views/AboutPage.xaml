@@ -40,5 +40,22 @@
             </StackLayout>
         </ScrollView>
     </Grid>
-    
+    <StackLayout Orientation="Vertical">
+        <Label HorizontalOptions="Start" 
+             VerticalOptions="Center"
+             Text="Data Source" />
+        <Switch
+             HorizontalOptions="Start" 
+             VerticalOptions="Center"
+             x:Name="DataSourceValue"
+             IsToggled="{Binding ItemIndexViewModel.Instance.CurrentDataSource}"
+             Toggled="DataSourceSwitched" 
+              />
+        <Button
+             HorizontalOptions="Start"
+             VerticalOptions="Center"
+             Text="Wipe"
+             Clicked="WipeDataClicked"/>
+    </StackLayout>
+
 </ContentPage>
