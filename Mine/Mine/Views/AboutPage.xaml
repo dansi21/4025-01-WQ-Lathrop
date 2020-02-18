@@ -50,7 +50,7 @@
                 <Button
                     HorizontalOptions="Start"
                     VerticalOptions="Center"
-                    Text="Wipe"
+                    Text="Wipe Data"
                     Clicked="WipeDataClicked"/>
             </StackLayout>
         </ScrollView>

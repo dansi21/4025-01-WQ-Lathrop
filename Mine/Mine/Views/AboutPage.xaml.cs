@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using Xamarin.Forms;
+using System;
 
 namespace Mine.Views
 {
@@ -19,6 +20,23 @@ namespace Mine.Views
             InitializeComponent();
 
             CurrentDateTime.Text = System.DateTime.Now.ToString("MM/dd/yy hh:mm:ss");
+        }
+
+        void DataSourceSwitched(object sender, EventArgs e)
+        {
+            // Flip the settings
+            if (DataSourceValue.IsToggled == true)
+            {
+                MessagingCenter.Send(this, "SetDataSource", 1);
+            }
+            else
+            {
+                MessagingCenter.Send(this, "SetDataSource", 0);
+            }
+        }
+
+        async void WipeDataClicked(object sender, EventArgs e) {
+            MessagingCenter.Send(this, "WipeDataList", true);
         }
     }
 }
