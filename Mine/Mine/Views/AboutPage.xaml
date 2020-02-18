@@ -37,18 +37,18 @@
                 <Label Text="CPSC 4025 WQ20"></Label>
                 <Label Text="William Lathrop"></Label>
                 <Label x:Name="CurrentDateTime"></Label>
-                <Label HorizontalOptions="Start" 
+                <Label HorizontalOptions="Center" 
                     VerticalOptions="Center"
                     Text="Data Source" />
                 <Switch
-                    HorizontalOptions="Start" 
+                    HorizontalOptions="Center" 
                     VerticalOptions="Center"
                     x:Name="DataSourceValue"
                     IsToggled="{Binding ItemIndexViewModel.Instance.CurrentDataSource}"
                     Toggled="DataSourceSwitched" 
                     />
                 <Button
-                    HorizontalOptions="Start"
+                    HorizontalOptions="Center"
                     VerticalOptions="Center"
                     Text="Wipe Data"
                     Clicked="WipeDataClicked"/>
