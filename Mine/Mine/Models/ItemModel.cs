@@ -10,6 +10,12 @@
         //The value of the item
         public int Value { get; set; } = 0;
 
+        public ItemModel(ItemModel data) {
+            Id = data.Id;
+            Name = data.Name;
+            Description = data.Description;
+            Value = data.Value;
+        }
         public bool Update(ItemModel data) {
             Name = data.Name;
             Description = data.Description;
