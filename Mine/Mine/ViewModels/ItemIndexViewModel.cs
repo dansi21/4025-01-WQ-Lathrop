@@ -45,17 +45,14 @@ namespace Mine.ViewModels
         /// </summary>
         /// 
         public IDataStore<ItemModel> DataMock => new MockDataStore();
-
+        public IDataStore<ItemModel> DataSQL => new DatabaseService();
         public IDataStore<ItemModel> DataStore;
 
+        public int CurrentDataSource = 0;
         // Command to force a Load of data
         public Command LoadDatasetCommand { get; set; }
 
-        public async Task<ItemModel> Read(string id)
-        {
-            var result = await DataStore.ReadAsync(id);
-            return result;
-        }
+
 
         private bool _needsRefresh;
 
@@ -84,6 +81,41 @@ namespace Mine.ViewModels
             {
                 await Update(data as ItemModel);
             });
+            MessagingCenter.Subscribe<AboutPage, int>(this, "SetDataSource", async (obj, data) =>
+            {
+                SetDataSource(data);
+            });
+            MessagingCenter.Subscribe<AboutPage, bool>(this, "WipeDataList", async (obj, data) =>
+             {
+                 WipeDataList();
+             });
+
+        }
+
+
+        public void WipeDataList()
+        {
+            DataStore.WipeDataList();
+            SetNeedsRefresh(true);
+        }
+
+        public bool SetDataSource(int isSQL)
+        {
+            if (isSQL == 1)
+            {
+                DataStore = DataSQL;
+                CurrentDataSource = 1;
+            }
+            else
+            {
+                DataStore = DataMock;
+                CurrentDataSource = 0;
+            }
+
+            // Set Flag for Refresh
+            SetNeedsRefresh(true);
+
+            return true;
         }
 
         /// <summary>
@@ -91,6 +123,7 @@ namespace Mine.ViewModels
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
+        /// 
         public async Task<bool> Add(ItemModel data)
         {
             Dataset.Add(data);
@@ -109,7 +142,11 @@ namespace Mine.ViewModels
 
             return result;
         }
-
+        public async Task<ItemModel> Read(string id)
+        {
+            var result = await DataStore.ReadAsync(id);
+            return result;
+        }
         public async Task<bool> Update(ItemModel data) {
             var record = await Read(data.Id);
             if (record == null)
