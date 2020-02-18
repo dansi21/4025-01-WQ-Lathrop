@@ -37,25 +37,24 @@
                 <Label Text="CPSC 4025 WQ20"></Label>
                 <Label Text="William Lathrop"></Label>
                 <Label x:Name="CurrentDateTime"></Label>
+                <Label HorizontalOptions="Start" 
+                    VerticalOptions="Center"
+                    Text="Data Source" />
+                <Switch
+                    HorizontalOptions="Start" 
+                    VerticalOptions="Center"
+                    x:Name="DataSourceValue"
+                    IsToggled="{Binding ItemIndexViewModel.Instance.CurrentDataSource}"
+                    Toggled="DataSourceSwitched" 
+                    />
+                <Button
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Text="Wipe"
+                    Clicked="WipeDataClicked"/>
             </StackLayout>
         </ScrollView>
     </Grid>
-    <StackLayout Orientation="Vertical">
-        <Label HorizontalOptions="Start" 
-             VerticalOptions="Center"
-             Text="Data Source" />
-        <Switch
-             HorizontalOptions="Start" 
-             VerticalOptions="Center"
-             x:Name="DataSourceValue"
-             IsToggled="{Binding ItemIndexViewModel.Instance.CurrentDataSource}"
-             Toggled="DataSourceSwitched" 
-              />
-        <Button
-             HorizontalOptions="Start"
-             VerticalOptions="Center"
-             Text="Wipe"
-             Clicked="WipeDataClicked"/>
-    </StackLayout>
+
 
 </ContentPage>

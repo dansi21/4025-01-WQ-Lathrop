@@ -9,7 +9,8 @@
 
         //The value of the item
         public int Value { get; set; } = 0;
-
+        public ItemModel() { 
+        }
         public ItemModel(ItemModel data) {
             Id = data.Id;
             Name = data.Name;
