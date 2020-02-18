@@ -12,7 +12,7 @@ namespace Mine.Services
     /// Will write to the local data store
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class DatabaseService
+    public class DatabaseService:IDataStore<ItemModel>
     {
         /// <summary>
         /// Set the class to load on demand
@@ -50,22 +50,26 @@ namespace Mine.Services
                 }
             }
         }
-        public Task<int> CreateAsync(ItemModel data)
+        public Task<bool> CreateAsync(ItemModel data)
         {
-            return Database.InsertAsync(data);
+            Database.InsertAsync(data);
+            return Task.FromResult(true);
         }
         public Task<ItemModel> ReadAsync(string id)
         {
             return Database.Table<ItemModel>().Where(i => i.Id.Equals(id)).FirstOrDefaultAsync();
         }
-        public Task<int> UpdateAsync(ItemModel item) {
-            return Database.UpdateAsync(item);
+        public Task<bool> UpdateAsync(ItemModel item) {
+            Database.UpdateAsync(item);
+            return Task.FromResult(true);
         }
-        public Task<int> DeleteAsync(ItemModel item)
+        public Task<bool> DeleteAsync(string id)
         {
-            return Database.DeleteAsync(item);
+            var delete = ReadAsync(id).GetAwaiter().GetResult();
+            Database.DeleteAsync(delete);
+            return Task.FromResult(true);
         }
-        public Task<List<ItemModel>> IndexAsync() {
+        public Task<List<ItemModel>> IndexAsync(bool t) {
             return Database.Table<ItemModel>().ToListAsync();
         }
     }
