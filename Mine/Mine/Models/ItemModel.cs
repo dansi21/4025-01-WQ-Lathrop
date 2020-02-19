@@ -12,7 +12,6 @@
         public ItemModel() { 
         }
         public ItemModel(ItemModel data) {
-            Id = data.Id;
             Name = data.Name;
             Description = data.Description;
             Value = data.Value;

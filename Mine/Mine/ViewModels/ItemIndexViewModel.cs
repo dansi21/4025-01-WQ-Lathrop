@@ -65,6 +65,8 @@ namespace Mine.ViewModels
         {
             Title = "Items";
 
+            SetDataSource(CurrentDataSource);
+
             Dataset = new ObservableCollection<ItemModel>();
             LoadDatasetCommand = new Command(async () => await ExecuteLoadDataCommand());
 
@@ -99,9 +101,9 @@ namespace Mine.ViewModels
             SetNeedsRefresh(true);
         }
 
-        public bool SetDataSource(int isSQL)
+        public bool SetDataSource(int Switched)
         {
-            if (isSQL == 1)
+            if (Switched == 1)
             {
                 DataStore = DataSQL;
                 CurrentDataSource = 1;

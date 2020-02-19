@@ -78,5 +78,9 @@ namespace Mine.Services
         public Task<List<ItemModel>> IndexAsync(bool t) {
             return Database.Table<ItemModel>().ToListAsync();
         }
+        public async void CreateTables()
+        {
+            await Database.CreateTableAsync<ItemModel>();
+        }
     }
 }
